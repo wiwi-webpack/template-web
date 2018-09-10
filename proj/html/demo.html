@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title><%= name %></title>
+
+<!-- Wiwi Server 注入位置 -->
+<!-- wiwi server injects -->
+
+<!-- 项目样式资源加载 -->
+<link rel="stylesheet" href="/app.css">
+<% if (!SPA) { %><link rel="stylesheet" href="/demo.css"><% } %>
+
+<!-- 兼容包资源加载 -->
+<!--[if lte IE 9]>
+<script src="//g.alicdn.com/platform/c/??es5-shim/4.1.12/es5-shim.min.js,es5-shim/4.1.12/es5-sham.min.js,console-polyfill/0.2.1/index.min.js,respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<script src="//g.alicdn.com/platform/c/??lodash/4.6.1/lodash.min.js,react/0.14.2/react-with-addons.min.js,react/0.14.2/react-dom.min.js,lie/3.0.2/dist/lie.polyfill.min.js"></script>
+
+
+</head>
+<body<% if (i18n) { %> class="zh-cn"<% } %>>
+<div id="App"></div>
+
+<!-- 项目脚本资源加载 -->
+<script src="/app<% if (i18n) { %>-zh-cn<% } %>.js"></script>
+<% if (!SPA) { %><script src="/demo<% if (i18n) { %>-zh-cn<% } %>.js"></script><% } %>
+</body>
+</html>
