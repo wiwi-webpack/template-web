@@ -42,8 +42,6 @@
 
 ## 环境准备
 
-具体请参考[这里](http://ux.alibaba.net/products/nowa.html)
-
 环境准备妥当之后，把项目clone下来，切换到对应分支。更新项目依赖：
 
 ```
@@ -57,7 +55,7 @@ npm install
 - 启动调试服务器
 
 ```
-nowa server
+wiwi server
 ```
 
 > 上面的命令会开启一个本地调试服务器（[http://localhost:3000/](http://localhost:3000/)）。此时，项目`src`目录下的任何文件的变化，都会触发实时构建，并把变更同步到浏览器。
@@ -65,13 +63,13 @@ nowa server
 - 本地打包压缩
 
 ```
-nowa build
+wiwi build
 ```
 
 - 增加新模块
 
 ```
-nowa init mod
+wiwi init mod
 ```
 
 生成好之后可以在页面中 require 进去使用。
@@ -79,7 +77,7 @@ nowa init mod
 - 增加新页面
 
 ```
-nowa init page
+wiwi init page
 ```
 
 生成好之后打开对应的页面即可访问。
@@ -87,18 +85,10 @@ nowa init page
 - 查看所有可用命令
 
 ```
-nowa
+wiwi
 ```
 
-- git 命令
 
-[Git发布操作流程和日常使用技巧](http://ux.alibaba.net/docs/git-publish.html)
-
-- 更多命令和参数（端口、代理、依赖库、国际化、热构建、https……）
-
-请查看 nowa 的官方文档：
-
-[https://www.npmjs.com/package/nowa](https://www.npmjs.com/package/nowa)
 
 ## 页面引用资源列表
 
@@ -125,13 +115,12 @@ nowa
 {
     "vars": {
         "locale": "zh-cn",
-        "container": "nw",
         "__LOCAL__": true
     }
 }
 ```
 
-> 这里定义的变量将以全局变量的形式，在 `nowa server` 时注入到代码中。
+> 这里定义的变量将以全局变量的形式，在 `wiwi server` 时注入到代码中。
 
 ### 构建变量（buildvars）
 
@@ -141,22 +130,19 @@ nowa
 {
     "buildvars": {
         "locale": [ "zh-cn", "en" ],
-        "container": [ "dingding", "nw" ]
+        "__LOCAL__": false
     }
 }
 ```
 
 > 构建变量和运行时变量作用类似，但同一变量允许有多个候选值，构建器将根据不同的候选值对每个 js 生成不同后缀的文件。
 
-> 例如，以上例子对于 app.js 将生成这些文件：app-zh-cn-dingding.js、app-zh-cn-nw.js、app-en-dingding.js、app-en-nw.js，每个文件中的 locale 和 container 变量分别对应到其后缀所指明的值。
+> 例如，以上例子对于 app.js 将生成这些文件：app-zh-cn.js、app-en.js。
 
 > `buildvars` 会自动包含 `vars` 中的定义。
 
 > 当某个变量仅有一个候选值时，将不会添加文件后缀。
 
-## CSS约定
-
-具体请参考[这里](http://gitlab.alibaba-inc.com/uxcore/uxcore-kuma/tree/master)。
 
 ## 外部工具
 
@@ -173,13 +159,7 @@ nowa
 
 > [React](http://reactjs.cn/) 和 [Refulx](https://github.com/reflux/refluxjs) 的使用，请参考各自的官方文档。
 
-## Uxcore 模块
 
-Uxcore 组件库请参考[这里](http://uxco.re/)。
-
-### 定制 Uxcore
-
-可通过在 abc.json 中增加相应配置来定制项目所需的 Uxcore，详见 [组件库的定制构建](http://nowa-webpack.github.io/docs/zu_jian_ku_de_ding_zhi_gou_jian.html)。
 <% if (i18n) { %>
 ## 国际化解决方案
 
